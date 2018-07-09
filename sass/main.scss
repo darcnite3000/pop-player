@@ -1,0 +1,98 @@
+@import 'compass/support';                     // Add Compass and IE vendor prefix support variables.
+@import 'compass/utilities/general/clearfix';  // Better than Drupal's clearfix.
+@import 'compass/utilities/sprites';           // See http://compass-style.org/help/tutorials/spriting/
+@import 'compass/css3';
+
+.content{
+  @include display-flex;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+  .views-row{
+    margin: 5px;
+  }
+  img{
+    display: block;
+  }
+}
+.hidden{
+  display: none;
+}
+
+.pop-player-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.pop-player-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  @include display-flex;
+  @include flex-direction(column);
+  @include justify-content(space-around);
+  @include align-items(center);
+  a{
+    color: inherit;
+    text-decoration: inherit;
+  }
+  .pop-player-player{
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+  }
+  .pop-player-scaler{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+  .pop-player-iframe{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+  }
+  .pop-player-controls{
+    @include align-self(stretch);
+    @include flex-shrink(0);
+  }
+}
+.pop-player-controls{
+  margin: 10px;
+  @include display-flex;
+  @include justify-content(space-around);
+  @include flex-wrap(wrap);
+  a{
+    padding: 0.2em;
+    margin: 0.2em;
+    text-align: center;
+    background: #F3A637;
+    color: #ffffff;
+    border-radius: 0.5em;
+    @include flex-grow(1);
+    &.join-link{
+      @include flex-basis(100%);
+    }
+    &.active{
+      opacity: 0.7;
+    }
+  }
+}
+.pop-player-close{
+  position: absolute;
+  top:-1.2em;
+  right:0;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  display:block;
+  font-size: 0.8em;
+}
